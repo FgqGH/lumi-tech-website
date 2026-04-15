@@ -187,270 +187,246 @@
     }
 
     /* ========================================
-       CASES SECTION
+       CASES SECTION - MODERN DESIGN
        ======================================== */
     .cases {
-      background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%);
-      padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
-      position: relative;
+      background: var(--white);
+      padding: clamp(3rem, 8vw, 6rem) 0;
+      overflow: hidden;
     }
 
-    .cases::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue-dark), var(--blue-mid), var(--blue-dark));
+    .cases-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
     }
 
-    .cases-header {
+    /* Hero Section */
+    .cases-hero {
       text-align: center;
-      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
-      position: relative;
+      margin-bottom: clamp(2rem, 5vw, 3.5rem);
     }
 
-    .cases-header .section-label {
-      color: var(--blue-mid);
-      margin-bottom: clamp(0.5rem, 1vw, 0.75rem);
-      font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-      letter-spacing: 0.2em;
-    }
-
-    .cases-header .section-title {
-      color: var(--gray-900);
-      font-size: clamp(1.25rem, 3vw, 1.75rem);
-      font-weight: 700;
-      position: relative;
-      display: inline-block;
-    }
-
-    .cases-header .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--blue-dark), var(--blue-mid));
-      border-radius: 2px;
-    }
-
-    .section-label {
-      font-size: var(--text-xs);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-1);
+    .cases-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-lighter) 100%);
+      border-radius: 100px;
+      font-size: 0.8rem;
       font-weight: 600;
+      color: var(--blue-dark);
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(0,51,102,0.1);
     }
 
-    .section-title {
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      font-size: clamp(1rem, 2vw, 1.25rem);
+    .cases-badge svg {
+      color: var(--blue-dark);
     }
 
+    .cases-hero-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .cases-hero-sub {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: var(--gray-500);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Metrics Bar */
+    .cases-metrics {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      padding: clamp(1.25rem, 3vw, 2rem);
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+      border-radius: 20px;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+      box-shadow: 0 20px 60px rgba(0,51,102,0.25);
+    }
+
+    .metric-item {
+      text-align: center;
+    }
+
+    .metric-num {
+      display: block;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-label {
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .metric-divider {
+      width: 1px;
+      height: 50px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Cases Grid */
     .cases-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: clamp(1rem, 2vw, 1.5rem);
-      max-width: 1000px;
-      margin: 0 auto;
+      gap: clamp(1.25rem, 2.5vw, 2rem);
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
     }
 
     .case-card {
       background: var(--white);
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
-      transition: all 0.4s var(--transition);
-      box-shadow: 0 4px 20px rgba(0,51,102,0.08);
-      border: 1px solid rgba(0,51,102,0.06);
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
-    }
-
-    .case-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--blue-dark), var(--blue-mid));
-      opacity: 0;
-      transition: opacity 0.3s var(--transition);
     }
 
     .case-card:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 20px 50px rgba(0,51,102,0.15);
+      transform: translateY(-8px);
       border-color: transparent;
+      box-shadow: 0 30px 80px rgba(0,51,102,0.18);
     }
 
-    .case-card:hover::before {
-      opacity: 1;
-    }
-
-    .case-card-img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
+    .case-card-visual {
+      position: relative;
+      aspect-ratio: 16 / 11;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--blue-lighter) 0%, #e8f0f8 100%);
+      background: linear-gradient(135deg, var(--blue-lighter) 0%, #dde8f5 100%);
     }
 
-    .case-card-img img {
+    .case-card-visual img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s var(--transition);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .case-card:hover .case-card-img img {
-      transform: scale(1.08);
+    .case-card:hover .case-card-visual img {
+      transform: scale(1.06);
     }
 
-    .case-card-body {
-      padding: clamp(1rem, 2.5vw, 1.5rem);
-      position: relative;
-    }
-
-    .case-card-body::before {
-      content: '';
+    .case-card-overlay {
       position: absolute;
-      top: -12px;
-      left: 1.5rem;
-      width: 30px;
-      height: 30px;
-      background: var(--blue-dark);
-      border-radius: 50%;
-      opacity: 0.1;
+      top: 1rem;
+      left: 1rem;
     }
 
-    .case-card-title {
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
-      font-weight: 700;
-      color: var(--gray-900);
-      margin-bottom: clamp(0.4rem, 1vw, 0.6rem);
-      position: relative;
-    }
-
-    .case-card-desc {
-      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-      color: var(--gray-700);
-      line-height: 1.65;
-    }
-
-    /* More Cases - Horizontal Cards */
-    .more-section {
-      margin-top: clamp(2rem, 5vw, 3.5rem);
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .more-section-title {
-      font-size: clamp(0.85rem, 1.5vw, 1rem);
+    .case-category {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      background: rgba(0,51,102,0.85);
+      backdrop-filter: blur(8px);
+      color: white;
+      font-size: 0.7rem;
       font-weight: 600;
-      color: var(--gray-900);
-      margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
-      padding-left: 0.5rem;
-      border-left: 3px solid var(--blue-dark);
+      border-radius: 6px;
+      letter-spacing: 0.03em;
     }
 
-    .more-card {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: clamp(1rem, 2vw, 1.5rem);
-      background: var(--white);
-      border-radius: 16px;
-      padding: clamp(1rem, 2.5vw, 1.5rem);
-      margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
-      box-shadow: 0 4px 20px rgba(0,51,102,0.06);
-      transition: all 0.4s var(--transition);
-      border: 1px solid rgba(0,51,102,0.04);
-      position: relative;
-      overflow: hidden;
+    .case-card-content {
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
     }
 
-    .more-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--blue-dark), var(--blue-mid));
-      opacity: 0;
-      transition: opacity 0.3s var(--transition);
-    }
-
-    .more-card:hover {
-      transform: translateX(8px);
-      box-shadow: 0 12px 40px rgba(0,51,102,0.12);
-    }
-
-    .more-card:hover::after {
-      opacity: 1;
-    }
-
-    .more-card-img {
-      aspect-ratio: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--blue-lighter) 0%, #e8f0f8 100%);
-    }
-
-    .more-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s var(--transition);
-    }
-
-    .more-card:hover .more-card-img img {
-      transform: scale(1.05);
-    }
-
-    .more-card-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .more-card-title {
-      font-size: clamp(1rem, 1.5vw, 1.15rem);
+    .case-title {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
       font-weight: 700;
       color: var(--gray-900);
-      margin-bottom: clamp(0.4rem, 1vw, 0.6rem);
+      margin-bottom: 0.35rem;
     }
 
-    .more-card-desc {
-      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    .case-company {
+      font-size: 0.8rem;
+      color: var(--blue-mid);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .case-desc {
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
       color: var(--gray-700);
-      line-height: 1.65;
-      margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
 
-    .more-card-tags {
+    .case-stats {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--space-2);
+      gap: 0.5rem;
     }
 
-    .more-card-tag {
-      padding: var(--space-1) var(--space-4);
-      background: var(--gray-100);
-      border-radius: 100px;
-      font-size: var(--text-xs);
+    .case-stat {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.85rem;
+      background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-lighter) 100%);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+    }
+
+    /* CTA Section */
+    .cases-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding: clamp(2rem, 5vw, 3rem);
+      background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%);
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .cases-cta-text {
+      font-size: clamp(1rem, 2vw, 1.25rem);
       color: var(--gray-700);
       font-weight: 500;
     }
 
-    .more-card-tag.highlight {
-      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-      color: #2563EB;
+    .cases-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: var(--blue-dark);
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s var(--transition);
+      box-shadow: 0 8px 24px rgba(0,51,102,0.25);
+    }
+
+    .cases-cta-btn:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,51,102,0.3);
+    }
+
+    .cases-cta-btn svg {
+      transition: transform 0.3s var(--transition);
+    }
+
+    .cases-cta-btn:hover svg {
+      transform: translateX(4px);
     }
 
     /* WHY CHOOSE */
@@ -614,9 +590,10 @@
       .cases { padding: clamp(1rem, 4vw, 2rem); }
       .cases-header { margin-bottom: var(--space-4); }
       .cases-grid { grid-template-columns: repeat(2, 1fr); }
-      .more-card { grid-template-columns: 100px 1fr; gap: 0.75rem; padding: 0.75rem; }
-      .more-card-img { aspect-ratio: 1; }
-      .why-section { padding: 3rem 1.5rem; }
+      .why-section { padding: clamp(2rem, 4vw, 3rem) clamp(0.75rem, 2vw, 1.5rem); }
+      .cases-metrics { flex-direction: column; gap: 1.25rem; }
+      .metric-divider { width: 50px; height: 1px; }
+      .cases-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
       .cta { padding: 3rem 1.5rem; }
       footer { padding: 2rem 1.5rem; }
@@ -676,64 +653,109 @@
   </section>
 
   <section class="cases">
-    <div class="container">
-      <div class="cases-header">
-        <div class="section-label">合作案例</div>
-        <h2 class="section-title">这些企业已经先行一步</h2>
+    <div class="cases-container">
+      <div class="cases-hero">
+        <div class="cases-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          真实案例
+        </div>
+        <h2 class="cases-hero-title">他们已经率先完成AI转型</h2>
+        <p class="cases-hero-sub">每一组数据都来自真实客户，平均提升效率30%+</p>
       </div>
+
+      <div class="cases-metrics">
+        <div class="metric-item">
+          <span class="metric-num">30+</span>
+          <span class="metric-label">平均效率提升 %</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-num">98%</span>
+          <span class="metric-label">客户持续合作</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-num">14天</span>
+          <span class="metric-label">首应用上线</span>
+        </div>
+      </div>
+
       <div class="cases-grid">
-        <div class="case-card">
-          <div class="case-card-img"><img src="assets/images/case-ai-acquisition.png" alt="AI获客" loading="lazy"></div>
-          <div class="case-card-body">
-            <div class="case-card-title">AI获客</div>
-            <div class="case-card-desc">某器械企业通过AI生成多渠道营销内容，全天候自动评论区截流。内容产出效率提升300%。</div>
+        <article class="case-card">
+          <div class="case-card-visual">
+            <img src="assets/images/case-ai-acquisition.png" alt="AI获客" loading="lazy">
+            <div class="case-card-overlay">
+              <span class="case-category">智能营销</span>
+            </div>
           </div>
-        </div>
-        <div class="case-card">
-          <div class="case-card-img"><img src="assets/images/case-ai-sales.png" alt="AI销售" loading="lazy"></div>
-          <div class="case-card-body">
-            <div class="case-card-title">AI销售</div>
-            <div class="case-card-desc">某美业企业通过定制AI销售顾问，基于专业知识库提供1对1方案推荐，接管80%的销售长。</div>
+          <div class="case-card-content">
+            <h3 class="case-title">AI获客系统</h3>
+            <p class="case-company">某器械企业</p>
+            <p class="case-desc">通过AI生成多渠道营销内容，全天候自动评论区截流</p>
+            <div class="case-stats">
+              <span class="case-stat">效率提升 300%</span>
+            </div>
           </div>
-        </div>
-        <div class="case-card">
-          <div class="case-card-img"><img src="assets/images/case-ai-distribution.png" alt="AI铺货" loading="lazy"></div>
-          <div class="case-card-body">
-            <div class="case-card-title">AI铺货</div>
-            <div class="case-card-desc">某跨境电商企业通过多Agent协同，实现商品向海外一键搬运及翻译。铺货时间降低60%。</div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-card-visual">
+            <img src="assets/images/case-ai-sales.png" alt="AI销售" loading="lazy">
+            <div class="case-card-overlay">
+              <span class="case-category">销售提效</span>
+            </div>
           </div>
-        </div>
-        <div class="case-card">
-          <div class="case-card-img"><img src="assets/images/case-ai-finance.png" alt="AI财务" loading="lazy"></div>
-          <div class="case-card-body">
-            <div class="case-card-title">AI财务</div>
-            <div class="case-card-desc">某传统制造企业通过AI自动化处理单据核对、审核及报表生成。财务文档编写时间提升50%。</div>
+          <div class="case-card-content">
+            <h3 class="case-title">AI销售顾问</h3>
+            <p class="case-company">某美业企业</p>
+            <p class="case-desc">基于专业知识库提供1对1方案推荐，接管80%的销售对话</p>
+            <div class="case-stats">
+              <span class="case-stat">人工成本降低 70%</span>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-card-visual">
+            <img src="assets/images/case-ai-distribution.png" alt="AI铺货" loading="lazy">
+            <div class="case-card-overlay">
+              <span class="case-category">跨境电商</span>
+            </div>
+          </div>
+          <div class="case-card-content">
+            <h3 class="case-title">AI铺货系统</h3>
+            <p class="case-company">某跨境电商</p>
+            <p class="case-desc">多Agent协同实现商品向海外一键搬运及翻译</p>
+            <div class="case-stats">
+              <span class="case-stat">铺货时间降低 60%</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-card-visual">
+            <img src="assets/images/case-ai-finance.png" alt="AI财务" loading="lazy">
+            <div class="case-card-overlay">
+              <span class="case-category">财务自动化</span>
+            </div>
+          </div>
+          <div class="case-card-content">
+            <h3 class="case-title">AI财务助手</h3>
+            <p class="case-company">某传统制造企业</p>
+            <p class="case-desc">自动化处理单据核对、审核及报表生成</p>
+            <div class="case-stats">
+              <span class="case-stat">效率提升 50%</span>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="more-section">
-        <div class="more-card">
-          <div class="more-card-img"><img src="assets/images/case-manufacturing-qc.png" alt="AI质检" loading="lazy"></div>
-          <div class="more-card-content">
-            <div class="more-card-title">某大型设备制造企业</div>
-            <div class="more-card-desc">为该企业设计了一套基于AI的生产质量检测方案，将质检效率提升35%，人工复核工作量降低50%。</div>
-            <div class="more-card-tags">
-              <span class="more-card-tag">制造业</span>
-              <span class="more-card-tag highlight">AI质检</span>
-            </div>
-          </div>
-        </div>
-        <div class="more-card">
-          <div class="more-card-img"><img src="assets/images/case-hospital-qa.png" alt="智能问答" loading="lazy"></div>
-          <div class="more-card-content">
-            <div class="more-card-title">某三甲医院后勤部门</div>
-            <div class="more-card-desc">为医院后勤搭建智能问答系统，患者及家属咨询响应准确率达92%，大幅减轻导诊台工作压力。</div>
-            <div class="more-card-tags">
-              <span class="more-card-tag">医疗机构</span>
-              <span class="more-card-tag highlight">智能问答</span>
-            </div>
-          </div>
-        </div>
+
+      <div class="cases-cta">
+        <span class="cases-cta-text">想了解AI如何助力您的业务？</span>
+        <a href="contact.html" class="cases-cta-btn">
+          预约咨询
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>
