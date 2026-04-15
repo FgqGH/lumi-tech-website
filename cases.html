@@ -148,7 +148,7 @@
     .results {
       background: var(--blue-dark);
       color: var(--white);
-      padding: 4rem 3rem;
+      padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 2rem);
     }
 
     .results-inner {
@@ -160,11 +160,11 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      margin-top: 2rem;
+      margin-top: clamp(0.75rem, 2vw, 1.5rem);
     }
 
     .result-item {
-      padding: 2rem;
+      padding: clamp(0.75rem, 1.5vw, 1.5rem);
       text-align: center;
       border-right: 1px solid rgba(255,255,255,0.15);
     }
@@ -172,16 +172,16 @@
     .result-item:last-child { border-right: none; }
 
     .result-num {
-      font-size: 2.5rem;
+      font-size: clamp(1.25rem, 3vw, 2rem);
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
-    .result-unit { font-size: 1rem; color: rgba(255,255,255,0.7); }
+    .result-unit { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
 
     .result-label {
-      font-size: 0.85rem;
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
       color: rgba(255,255,255,0.6);
       margin-top: 0.5rem;
     }
