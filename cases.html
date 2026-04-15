@@ -191,12 +191,12 @@
        ======================================== */
     .cases {
       background: var(--gray-100);
-      padding: var(--space-12);
+      padding: clamp(1.5rem, 5vw, 3rem);
     }
 
     .cases-header {
       text-align: center;
-      margin-bottom: var(--space-6);
+      margin-bottom: clamp(1rem, 3vw, 2rem);
     }
 
     .cases-header .section-label {
@@ -206,15 +206,15 @@
 
     .cases-header .section-title {
       color: var(--gray-900);
-      font-size: 1.25rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
       font-weight: 600;
     }
 
     .section-label {
       font-size: var(--text-xs);
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-bottom: var(--space-3);
+      margin-bottom: var(--space-1);
       font-weight: 600;
     }
 
@@ -225,28 +225,28 @@
 
     .cases-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-6);
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: clamp(1rem, 2vw, 1.5rem);
       max-width: 1100px;
       margin: 0 auto;
     }
 
     .case-card {
       background: var(--white);
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
       transition: all 0.3s var(--transition);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
 
     .case-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
 
     .case-card-img {
       width: 100%;
-      height: 160px;
+      aspect-ratio: 16 / 10;
       overflow: hidden;
       background: var(--blue-lighter);
     }
@@ -259,57 +259,55 @@
     }
 
     .case-card:hover .case-card-img img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .case-card-body {
-      padding: var(--space-5);
+      padding: clamp(0.75rem, 2vw, 1.25rem);
     }
 
     .case-card-title {
-      font-size: var(--text-lg);
+      font-size: clamp(0.95rem, 1.5vw, 1.125rem);
       font-weight: 700;
       color: var(--gray-900);
-      margin-bottom: var(--space-2);
+      margin-bottom: var(--space-1);
     }
 
     .case-card-desc {
-      font-size: var(--text-sm);
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
       color: var(--gray-700);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     /* More Cases - Horizontal Cards */
     .more-section {
-      margin-top: var(--space-10);
+      margin-top: clamp(1.5rem, 4vw, 2.5rem);
       max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .more-card {
-      display: flex;
-      gap: var(--space-6);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: clamp(1rem, 2vw, 1.5rem);
       background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      padding: var(--space-5);
-      margin-bottom: var(--space-5);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: clamp(0.75rem, 2vw, 1.25rem);
+      margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
       transition: all 0.3s var(--transition);
     }
 
     .more-card:hover {
-      transform: translateX(8px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      transform: translateX(4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
 
     .more-card-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 12px;
+      aspect-ratio: 1;
+      border-radius: 10px;
       overflow: hidden;
-      flex-shrink: 0;
       background: var(--blue-lighter);
     }
 
@@ -518,11 +516,11 @@
       .results { padding: 3rem 1.5rem; }
       .results-grid { grid-template-columns: repeat(2, 1fr); }
       .result-item:nth-child(2) { border-right: none; }
-      .cases { padding: var(--space-8) var(--space-6); }
-      .cases-header { margin-bottom: var(--space-6); }
-      .cases-grid { grid-template-columns: 1fr; }
-      .more-card { flex-direction: column; }
-      .more-card-img { width: 100%; height: 160px; }
+      .cases { padding: clamp(1rem, 4vw, 2rem); }
+      .cases-header { margin-bottom: var(--space-4); }
+      .cases-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+      .more-card { grid-template-columns: 100px 1fr; gap: 0.75rem; padding: 0.75rem; }
+      .more-card-img { aspect-ratio: 1; }
       .why-section { padding: 3rem 1.5rem; }
       .why-grid { grid-template-columns: 1fr; }
       .cta { padding: 3rem 1.5rem; }
