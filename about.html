@@ -158,10 +158,13 @@
       background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-lighter) 100%);
       border-radius: 16px;
       height: 320px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* VALUES */
@@ -582,7 +585,7 @@
           <p>我们深知传统企业在数字化转型中的顾虑——投入大、周期长、效果难预测。因此我们坚持：不做概念，只做能落地的方案；不求快，求稳求实效。</p>
           <p>我们团队既有AI技术专家，也有在传统行业深耕多年的业务顾问，确保每一个方案都能真正解决您的问题，而不是制造新的麻烦。</p>
         </div>
-        <div class="about-image">🏢</div>
+        <div class="about-image"><img src="assets/images/team-meeting.jpg" alt="Lumi科技团队" loading="lazy"></div>
       </div>
     </div>
   </section>
