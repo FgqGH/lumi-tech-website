@@ -21,6 +21,10 @@
       --gray-100: #F5F5F5;
       --white: #FFFFFF;
       --border: #E0E0E0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-blue: 0 8px 32px rgba(0,51,102,0.15);
       --transition: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -262,7 +266,7 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s var(--transition);
+      transition: all 0.3s var(--transition);
       font-family: inherit;
     }
 
@@ -341,7 +345,7 @@
     .process-item {
       text-align: center;
       padding: 2rem 1.5rem;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(0,0,0,0.05);
       position: relative;
     }
 
@@ -420,7 +424,7 @@
       font-weight: 700;
       border: none;
       cursor: pointer;
-      transition: all 0.2s var(--transition);
+      transition: all 0.3s var(--transition);
       text-decoration: none;
       display: inline-block;
     }
