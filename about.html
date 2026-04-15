@@ -341,6 +341,62 @@
       line-height: 1.6;
     }
 
+    /* CULTURE */
+    .culture-section {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .culture-main {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .culture-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--transition);
+    }
+
+    .culture-main:hover img {
+      transform: scale(1.03);
+    }
+
+    .culture-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .culture-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .culture-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--transition);
+    }
+
+    .culture-item:hover img {
+      transform: scale(1.05);
+    }
+
     /* HONORS */
     .honors-section {
       padding: 5rem 0;
@@ -476,8 +532,9 @@
       .about-intro-inner { grid-template-columns: 1fr; gap: 2rem; }
       .values { padding: 3rem 1.5rem; }
       .values-grid { grid-template-columns: repeat(2, 1fr); }
-      .team-section { padding: 3rem 1.5rem; }
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .culture-section { padding: 3rem 1.5rem; }
+      .culture-grid { grid-template-columns: 1fr; }
+      .culture-side { grid-template-rows: auto; grid-template-columns: 1fr 1fr; }
       .honors-section { padding: 3rem 0; }
       .honors-grid { grid-template-columns: repeat(2, 1fr); }
       .cta { padding: 3rem 1.5rem; }
@@ -590,35 +647,22 @@
     </div>
   </section>
 
-  <section class="team-section">
+  <section class="culture-section">
     <div class="section-header">
-      <div class="section-label">核心团队</div>
-      <h2 class="section-title">专业的人，做专业的事</h2>
+      <div class="section-label">公司环境</div>
+      <h2 class="section-title">创新科技，沉浸体验</h2>
     </div>
-    <div class="team-grid">
-      <div class="team-item">
-        <div class="team-avatar">👨‍💼</div>
-        <h4 class="team-name">张明远</h4>
-        <p class="team-title">创始人 & CEO</p>
-        <p class="team-desc">清华大学计算机系博士，曾任某互联网大厂技术副总裁</p>
+    <div class="culture-grid">
+      <div class="culture-main">
+        <img src="assets/images/office.jpg" alt="Lumi科技办公环境" loading="lazy">
       </div>
-      <div class="team-item">
-        <div class="team-avatar">👩‍💻</div>
-        <h4 class="team-name">李婷</h4>
-        <p class="team-title">CTO</p>
-        <p class="team-desc">AI领域资深专家，多项AI专利发明人，负责技术研发方向</p>
-      </div>
-      <div class="team-item">
-        <div class="team-avatar">👨‍🎨</div>
-        <h4 class="team-name">王建国</h4>
-        <p class="team-title">COO</p>
-        <p class="team-desc">15年企业咨询经验，深耕制造业、零售业数字化转型</p>
-      </div>
-      <div class="team-item">
-        <div class="team-avatar">👩‍🔬</div>
-        <h4 class="team-name">陈思</h4>
-        <p class="team-title">首席数据科学家</p>
-        <p class="team-desc">国内外顶级期刊发表AI论文20余篇，负责大模型训练优化</p>
+      <div class="culture-side">
+        <div class="culture-item">
+          <img src="assets/images/ai-brain.jpg" alt="AI技术" loading="lazy">
+        </div>
+        <div class="culture-item">
+          <img src="assets/images/datacenter.jpg" alt="数据中心" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
