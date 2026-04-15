@@ -687,62 +687,148 @@
        CASES SECTION
        ======================================== */
     .cases {
-      background: var(--white);
-      padding: var(--space-16) var(--space-12);
+      background: var(--gray-100);
+      padding: var(--space-12) var(--space-12);
+    }
+
+    .cases-header {
+      padding: var(--space-10) var(--space-12);
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+      text-align: center;
+      border-radius: 20px 20px 0 0;
+      margin: 0 calc(-1 * var(--space-12));
+    }
+
+    .cases-header .section-label {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .cases-header .section-title {
+      color: var(--white);
     }
 
     .cases-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-6);
-      margin-top: var(--space-10);
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+      padding: var(--space-8);
+      background: var(--white);
+      border-radius: 20px;
+      margin-top: -24px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
     }
 
     .case-card {
-      background: var(--white);
-      border: 1px solid rgba(0,0,0,0.04);
-      padding: var(--space-6);
-      border-radius: 16px;
-      transition: all 0.3s var(--transition);
+      transition: all 0.25s var(--transition);
     }
 
     .case-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: transparent;
     }
 
-    .case-industry {
-      font-size: var(--text-xs);
-      color: var(--blue-mid);
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      margin-bottom: var(--space-3);
-    }
-
-    .case-title {
-      font-size: var(--text-base);
-      font-weight: 600;
-      color: var(--gray-900);
-      margin-bottom: var(--space-3);
-      line-height: 1.5;
-    }
-
-    .case-desc {
-      font-size: var(--text-sm);
-      color: var(--gray-700);
-      line-height: 1.75;
+    .case-card-img {
+      width: 100%;
+      height: 120px;
+      border-radius: 12px;
+      overflow: hidden;
       margin-bottom: var(--space-4);
+      background: var(--blue-lighter);
     }
 
-    .case-result {
+    .case-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .case-card-title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: #1E293B;
+      margin-bottom: var(--space-2);
+    }
+
+    .case-card-desc {
       font-size: var(--text-xs);
-      color: var(--blue-dark);
-      font-weight: 600;
-      padding: var(--space-2) var(--space-4);
-      background: linear-gradient(135deg, var(--blue-light), #e8f4fc);
-      border-radius: 8px;
-      display: inline-block;
+      color: #64748B;
+      line-height: 1.6;
+    }
+
+    /* More Cases Section */
+    .more-section {
+      margin-top: var(--space-8);
+    }
+
+    .more-card {
+      display: flex;
+      gap: var(--space-6);
+      padding: var(--space-6);
+      background: var(--white);
+      border-radius: 16px;
+      margin-bottom: var(--space-5);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      border-left: 6px solid #2563EB;
+      transition: all 0.25s var(--transition);
+    }
+
+    .more-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    .more-card-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--blue-lighter);
+    }
+
+    .more-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .more-card-content {
+      flex: 1;
+    }
+
+    .more-card-title {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: #1E293B;
+      margin-bottom: var(--space-2);
+    }
+
+    .more-card-desc {
+      font-size: var(--text-sm);
+      color: #64748B;
+      line-height: 1.7;
+      margin-bottom: var(--space-3);
+    }
+
+    .more-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .more-card-tag {
+      padding: var(--space-1) var(--space-4);
+      background: #F1F5F9;
+      border-radius: 100px;
+      font-size: var(--text-xs);
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    .more-card-tag.highlight {
+      background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+      color: #2563EB;
     }
 
     /* ========================================
@@ -882,6 +968,7 @@
       .intro-inner { grid-template-columns: 1fr; gap: var(--space-10); }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .cases-grid { grid-template-columns: repeat(2, 1fr); }
+      .cases-header { padding: var(--space-8); margin: 0 calc(-1 * var(--space-6)); border-radius: 0; }
       .results-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -901,8 +988,10 @@
       .results { padding: var(--space-10) var(--space-6); }
       .results-grid { grid-template-columns: 1fr 1fr; }
       .result-item::after { display: none; }
-      .cases { padding: var(--space-10) var(--space-6); }
-      .cases-grid { grid-template-columns: 1fr; }
+      .cases { padding: var(--space-8) var(--space-6); }
+      .cases-grid { grid-template-columns: 1fr 1fr; }
+      .more-card { flex-direction: column; }
+      .more-card-img { width: 100%; height: 160px; }
       .cta { padding: var(--space-10) var(--space-6); }
       footer { padding: var(--space-10) var(--space-6) var(--space-6); }
       .footer-links { flex-direction: column; gap: var(--space-8); }
@@ -1055,28 +1144,54 @@
 
   <section class="cases" id="cases">
     <div class="container">
-      <div class="section-header">
+      <div class="cases-header">
         <div class="section-label">合作案例</div>
         <h2 class="section-title">这些企业已经先行一步</h2>
       </div>
       <div class="cases-grid">
         <div class="case-card">
-          <div class="case-industry">制造业</div>
-          <h3 class="case-title">某大型设备制造企业</h3>
-          <p class="case-desc">为该企业设计了一套基于AI的生产质量检测方案，将质检效率提升35%，人工复核工作量降低50%。</p>
-          <div class="case-result">↑ 效率提升 35% | ↓ 成本降低 20%</div>
+          <div class="case-card-img"><img src="assets/images/case-ai-acquisition.png" alt="AI获客" loading="lazy"></div>
+          <div class="case-card-title">AI获客</div>
+          <div class="case-card-desc">某器械企业通过AI生成多渠道营销内容，全天候自动评论区截流。内容产出效率提升300%。</div>
         </div>
         <div class="case-card">
-          <div class="case-industry">零售连锁</div>
-          <h3 class="case-title">某区域连锁零售品牌</h3>
-          <p class="case-desc">帮助该企业搭建AI客服智能体，承接门店咨询、会员服务等业务，客服团队从15人缩减至4人。</p>
-          <div class="case-result">↑ 响应速度 10x | ↓ 人工成本 70%</div>
+          <div class="case-card-img"><img src="assets/images/case-ai-sales.png" alt="AI销售" loading="lazy"></div>
+          <div class="case-card-title">AI销售</div>
+          <div class="case-card-desc">某美业企业通过定制AI销售顾问，基于专业知识库提供1对1方案推荐，接管80%的销售长。</div>
         </div>
         <div class="case-card">
-          <div class="case-industry">医疗机构</div>
-          <h3 class="case-title">某三甲医院后勤部门</h3>
-          <p class="case-desc">为医院后勤搭建智能问答系统，患者及家属咨询响应准确率达92%，大幅减轻导诊台工作压力。</p>
-          <div class="case-result">↑ 准确率 92% | ↑ 患者满意度</div>
+          <div class="case-card-img"><img src="assets/images/case-ai-distribution.png" alt="AI铺货" loading="lazy"></div>
+          <div class="case-card-title">AI铺货</div>
+          <div class="case-card-desc">某跨境电商企业通过多Agent协同，实现商品向海外一键搬运及翻译。铺货时间降低60%。</div>
+        </div>
+        <div class="case-card">
+          <div class="case-card-img"><img src="assets/images/case-ai-finance.png" alt="AI财务" loading="lazy"></div>
+          <div class="case-card-title">AI财务</div>
+          <div class="case-card-desc">某传统制造企业通过AI自动化处理单据核对、审核及报表生成。财务文档编写时间提升50%。</div>
+        </div>
+      </div>
+      <div class="more-section">
+        <div class="more-card">
+          <div class="more-card-img"><img src="assets/images/case-manufacturing-qc.png" alt="AI质检" loading="lazy"></div>
+          <div class="more-card-content">
+            <div class="more-card-title">某大型设备制造企业</div>
+            <div class="more-card-desc">为该企业设计了一套基于AI的生产质量检测方案，将质检效率提升35%，人工复核工作量降低50%。</div>
+            <div class="more-card-tags">
+              <span class="more-card-tag">制造业</span>
+              <span class="more-card-tag highlight">AI质检</span>
+            </div>
+          </div>
+        </div>
+        <div class="more-card">
+          <div class="more-card-img"><img src="assets/images/case-hospital-qa.png" alt="智能问答" loading="lazy"></div>
+          <div class="more-card-content">
+            <div class="more-card-title">某三甲医院后勤部门</div>
+            <div class="more-card-desc">为医院后勤搭建智能问答系统，患者及家属咨询响应准确率达92%，大幅减轻导诊台工作压力。</div>
+            <div class="more-card-tags">
+              <span class="more-card-tag">医疗机构</span>
+              <span class="more-card-tag highlight">智能问答</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
