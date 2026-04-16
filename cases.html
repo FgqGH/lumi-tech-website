@@ -327,6 +327,7 @@
       position: absolute;
       top: 0.5rem;
       left: 0.5rem;
+      z-index: 2;
     }
 
     .case-category {
@@ -339,6 +340,36 @@
       font-weight: 600;
       border-radius: 3px;
       letter-spacing: 0.02em;
+    }
+
+    .case-video-btn {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    .case-video-btn:hover {
+      transform: scale(1.12);
+      background: var(--white);
+      box-shadow: 0 6px 20px rgba(0,51,102,0.35);
+    }
+
+    .case-video-btn svg {
+      width: 14px;
+      height: 14px;
+      color: var(--blue-dark);
+      margin-left: 2px;
     }
 
     .case-card-content {
@@ -639,6 +670,66 @@
       footer { padding: 2rem 1.5rem; }
       .footer-links { flex-direction: column; gap: 2rem; }
     }
+
+    /* Video Modal */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .video-modal.active { display: flex; }
+    .video-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+    .video-modal-content iframe,
+    .video-modal-content video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      border: none;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+    .video-modal-close:hover { background: rgba(255,255,255,0.2); }
+    .video-modal-close svg { width: 20px; height: 20px; }
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 4rem 2rem;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+    }
+    .video-placeholder svg { width: 64px; height: 64px; opacity: 0.4; }
+    .video-placeholder p { font-size: 1rem; max-width: 400px; }
   </style>
 </head>
 <body>
@@ -727,6 +818,9 @@
             <div class="case-card-overlay">
               <span class="case-category">智能营销</span>
             </div>
+            <div class="case-video-btn" title="播放案例演示">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
           </div>
           <div class="case-card-content">
             <h3 class="case-title">AI获客系统</h3>
@@ -743,6 +837,9 @@
             <img src="assets/images/case-ai-sales.png" alt="AI销售" loading="lazy">
             <div class="case-card-overlay">
               <span class="case-category">销售提效</span>
+            </div>
+            <div class="case-video-btn" title="播放案例演示">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
           <div class="case-card-content">
@@ -761,6 +858,9 @@
             <div class="case-card-overlay">
               <span class="case-category">跨境电商</span>
             </div>
+            <div class="case-video-btn" title="播放案例演示">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
           </div>
           <div class="case-card-content">
             <h3 class="case-title">AI铺货系统</h3>
@@ -777,6 +877,9 @@
             <img src="assets/images/case-ai-finance.png" alt="AI财务" loading="lazy">
             <div class="case-card-overlay">
               <span class="case-category">财务自动化</span>
+            </div>
+            <div class="case-video-btn" title="播放案例演示">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
           <div class="case-card-content">
@@ -876,5 +979,53 @@
       <p>京ICP备XXXXXXXX号-1</p>
     </div>
   </footer>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="caseVideoModal">
+    <div class="video-modal-content">
+      <button class="video-modal-close" id="caseVideoModalClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="video-placeholder">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        <p>案例视频播放器占位<br><small style="opacity:0.6">请替换为实际视频URL或嵌入YouTube/Vimeo</small></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const caseVideoBtns = document.querySelectorAll('.case-video-btn');
+    const caseVideoModal = document.getElementById('caseVideoModal');
+    const caseVideoModalClose = document.getElementById('caseVideoModalClose');
+
+    caseVideoBtns.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        caseVideoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    if (caseVideoModalClose && caseVideoModal) {
+      caseVideoModalClose.addEventListener('click', function() {
+        caseVideoModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      caseVideoModal.addEventListener('click', function(e) {
+        if (e.target === caseVideoModal) {
+          caseVideoModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && caseVideoModal.classList.contains('active')) {
+          caseVideoModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
