@@ -887,12 +887,10 @@
 
         <article class="case-card">
           <div class="case-card-visual">
-            <img src="assets/images/case-ai-finance.png" alt="AI财务" loading="lazy">
+            <img src="assets/images/case-ai-finance.png" alt="AI财务" class="case-card-cover">
+            <video src="assets/videos/vidu-video-3253489229144693.mp4" class="case-card-video" muted loop playsinline></video>
             <div class="case-card-overlay">
               <span class="case-category">财务自动化</span>
-            </div>
-            <div class="case-video-btn" title="播放案例演示">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
           <div class="case-card-content">
@@ -1042,12 +1040,14 @@
   <script>
     // Hover video play/pause for case cards
     document.querySelectorAll('.case-card').forEach(function(card) {
-      var video = card.querySelector('video');
+      var video = card.querySelector('.case-card-video');
       if (!video) return;
       
       card.addEventListener('mouseenter', function() {
         video.currentTime = 0;
-        video.play();
+        video.play().catch(function(e) {
+          console.log('Video play failed:', e);
+        });
       });
       
       card.addEventListener('mouseleave', function() {
