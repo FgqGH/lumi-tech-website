@@ -198,8 +198,8 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: var(--space-16);
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
       align-items: center;
       position: relative;
       z-index: 1;
@@ -285,62 +285,19 @@
       transform: translateY(0) scale(0.98);
     }
 
-    /* Video Showcase */
-    .video-showcase {
+    /* Hero Video */
+    .hero-video-wrapper {
       position: relative;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow-lg);
       background: #000;
-      aspect-ratio: 16 / 9;
-      cursor: pointer;
     }
 
-    .video-showcase-poster {
+    .hero-video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
-      transition: transform 0.4s var(--transition), filter 0.4s var(--transition);
-    }
-
-    .video-showcase:hover .video-showcase-poster {
-      transform: scale(1.03);
-      filter: brightness(0.7);
-    }
-
-    .video-showcase-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-3);
-      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%);
-      transition: background 0.3s var(--transition);
-    }
-
-    .video-showcase:hover .video-showcase-overlay {
-      background: linear-gradient(180deg, rgba(0,51,102,0.1) 0%, rgba(0,0,0,0.6) 100%);
-    }
-
-    .play-btn {
-      width: 64px;
-      height: 64px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-      transition: all 0.3s var(--transition);
-    }
-
-    .video-showcase:hover .play-btn {
-      transform: scale(1.1);
-      background: var(--white);
-      box-shadow: 0 12px 40px rgba(0,51,102,0.4);
     }
 
     .play-btn svg {
@@ -389,96 +346,6 @@
       border-radius: 6px;
       font-size: var(--text-xs);
       font-weight: 600;
-    }
-
-    /* Video Modal */
-    .video-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(0,0,0,0.92);
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-8);
-    }
-
-    .video-modal.active {
-      display: flex;
-    }
-
-    .video-modal-content {
-      position: relative;
-      width: 100%;
-      max-width: 1000px;
-      background: #000;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
-    }
-
-    .video-modal-content iframe,
-    .video-modal-content video {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      display: block;
-      border: none;
-    }
-
-    .video-modal-close {
-      position: absolute;
-      top: var(--space-4);
-      right: var(--space-4);
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border: none;
-      border-radius: 50%;
-      color: var(--white);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-      z-index: 10;
-    }
-
-    .video-modal-close:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .video-modal-close svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .video-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-4);
-      padding: var(--space-16);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-    }
-
-    .video-placeholder svg {
-      width: 64px;
-      height: 64px;
-      opacity: 0.4;
-    }
-
-    .video-placeholder p {
-      font-size: var(--text-base);
-      max-width: 400px;
-    }
-
-    .video-player {
-      width: 100%;
-      max-width: 100%;
-      border-radius: 8px;
-      background: #000;
     }
 
     /* ========================================
@@ -1165,19 +1032,8 @@
           <a href="cases.html" class="btn-secondary">查看合作案例</a>
         </div>
       </div>
-      <div class="video-showcase" id="heroVideo">
-        <img src="assets/videos/hero-video-poster---17374b41-4001-4902-b3b2-3efd6d167299.png" alt="Lumi科技产品演示" class="video-showcase-poster">
-        <div class="video-badge">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-          视频介绍
-        </div>
-        <div class="video-duration">2:34</div>
-        <div class="video-showcase-overlay">
-          <div class="play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-          <span class="video-label">观看演示</span>
-        </div>
+      <div class="hero-video-wrapper">
+        <video class="hero-video" src="assets/videos/vidu-video-3253378894989455.mp4" autoplay muted loop playsinline></video>
       </div>
     </div>
   </section>
@@ -1332,46 +1188,8 @@
     </div>
   </footer>
 
-  <!-- Video Modal -->
-  <div class="video-modal" id="videoModal">
-    <div class="video-modal-content">
-      <button class="video-modal-close" id="videoModalClose">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-      <video class="video-player" src="assets/videos/vidu-video-3253378894989455.mp4" controls playsinline muted></video>
-    </div>
-  </div>
-
   <script>
-    const heroVideo = document.getElementById('heroVideo');
-    const videoModal = document.getElementById('videoModal');
-    const videoModalClose = document.getElementById('videoModalClose');
-    const videoPlayer = videoModal ? videoModal.querySelector('video') : null;
-
-    function closeVideoModal() {
-      if (videoModal) videoModal.classList.remove('active');
-      document.body.style.overflow = '';
-      if (videoPlayer) videoPlayer.pause();
-    }
-
-    if (heroVideo && videoModal) {
-      heroVideo.addEventListener('click', () => {
-        videoModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-
-      videoModalClose.addEventListener('click', closeVideoModal);
-
-      videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) closeVideoModal();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-          closeVideoModal();
-        }
-      });
-    }
+    // Video autoplays muted in hero section
   </script>
 </body>
 </html>
