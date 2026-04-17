@@ -1039,20 +1039,22 @@
     }
   <script>
     // Hover video play/pause for case cards
-    document.querySelectorAll('.case-card').forEach(function(card) {
-      var video = card.querySelector('.case-card-video');
-      if (!video) return;
-      
-      card.addEventListener('mouseenter', function() {
-        video.currentTime = 0;
-        video.play().catch(function(e) {
-          console.log('Video play failed:', e);
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.case-card').forEach(function(card) {
+        var video = card.querySelector('.case-card-video');
+        if (!video) return;
+        
+        card.addEventListener('mouseenter', function() {
+          video.currentTime = 0;
+          video.play().catch(function(e) {
+            console.log('Video play failed:', e);
+          });
         });
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        video.pause();
-        video.currentTime = 0;
+        
+        card.addEventListener('mouseleave', function() {
+          video.pause();
+          video.currentTime = 0;
+        });
       });
     });
   </script>
