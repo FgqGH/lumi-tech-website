@@ -474,6 +474,13 @@
       max-width: 400px;
     }
 
+    .video-player {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+      background: #000;
+    }
+
     /* ========================================
        INTRO SECTION
        ======================================== */
@@ -1331,10 +1338,7 @@
       <button class="video-modal-close" id="videoModalClose">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
-      <div class="video-placeholder">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-        <p>视频播放器占位<br><small style="opacity:0.6">请替换为实际视频URL或嵌入YouTube/Vimeo</small></p>
-      </div>
+      <video class="video-player" src="assets/videos/vidu-video-3253378894989455.mp4" controls playsinline></video>
     </div>
   </div>
 
@@ -1342,6 +1346,13 @@
     const heroVideo = document.getElementById('heroVideo');
     const videoModal = document.getElementById('videoModal');
     const videoModalClose = document.getElementById('videoModalClose');
+    const videoPlayer = videoModal ? videoModal.querySelector('video') : null;
+
+    function closeVideoModal() {
+      if (videoModal) videoModal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (videoPlayer) videoPlayer.pause();
+    }
 
     if (heroVideo && videoModal) {
       heroVideo.addEventListener('click', () => {
@@ -1349,22 +1360,15 @@
         document.body.style.overflow = 'hidden';
       });
 
-      videoModalClose.addEventListener('click', () => {
-        videoModal.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+      videoModalClose.addEventListener('click', closeVideoModal);
 
       videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) {
-          videoModal.classList.remove('active');
-          document.body.style.overflow = '';
-        }
+        if (e.target === videoModal) closeVideoModal();
       });
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-          videoModal.classList.remove('active');
-          document.body.style.overflow = '';
+          closeVideoModal();
         }
       });
     }
