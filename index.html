@@ -294,10 +294,57 @@
       background: #000;
     }
 
+    .hero-video-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 20, 40, 0.4) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
     .hero-video {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .hero-video-logo {
+      position: absolute;
+      bottom: var(--space-8);
+      right: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+      opacity: 0;
+      animation: logoFadeIn 1s ease-out 4s forwards;
+    }
+
+    .logo-text {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      background: linear-gradient(135deg, #00d4ff 0%, #0066ff 50%, #00d4ff 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+      filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));
+    }
+
+    .logo-tagline {
+      font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+    }
+
+    @keyframes logoFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .play-btn svg {
@@ -1034,6 +1081,10 @@
       </div>
       <div class="hero-video-wrapper">
         <video class="hero-video" src="assets/videos/vidu-video-3253378894989455.mp4" autoplay muted loop playsinline></video>
+        <div class="hero-video-logo">
+          <span class="logo-text">LUMI</span>
+          <span class="logo-tagline">科技</span>
+        </div>
       </div>
     </div>
   </section>
