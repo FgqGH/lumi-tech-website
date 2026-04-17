@@ -605,14 +605,17 @@
     .service-icon {
       width: 56px;
       height: 56px;
-      background: linear-gradient(145deg, var(--blue-light), #d4e8f7);
+      background: linear-gradient(145deg, var(--blue-dark), var(--blue-mid));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       margin-bottom: var(--space-5);
       border-radius: 14px;
       transition: transform 0.3s var(--transition);
+    }
+
+    .service-icon svg {
+      color: var(--white);
     }
 
     .service-card:hover .service-icon {
@@ -1139,19 +1142,40 @@
       </div>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">🤖</div>
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+          </div>
           <h3 class="service-title">AI行业转型咨询</h3>
           <p class="service-desc">深入调研企业现状与业务需求，定制化设计AI转型路径图。不套模板，只做最适合您企业的方案。</p>
           <a href="services.html" class="service-link">了解更多 →</a>
         </div>
         <div class="service-card">
-          <div class="service-icon">📱</div>
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+            </svg>
+          </div>
           <h3 class="service-title">自媒体自动化运营</h3>
           <p class="service-desc">用AI技术帮助企业提升内容产出效率，降低运营团队工作负担，让品牌在多平台持续发声。</p>
           <a href="services.html" class="service-link">了解更多 →</a>
         </div>
         <div class="service-card">
-          <div class="service-icon">🧠</div>
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4a2 2 0 0 1-2-2 4 4 0 0 1 4-4z"/>
+              <path d="M9 8H5a2 2 0 0 0-2 2v2h18v-2a2 2 0 0 0-2-2h-4"/>
+              <rect x="4" y="12" width="16" height="8" rx="2"/>
+              <circle cx="9" cy="16" r="1"/>
+              <circle cx="15" cy="16" r="1"/>
+            </svg>
+          </div>
           <h3 class="service-title">垂直场景智能体开发</h3>
           <p class="service-desc">基于大模型技术，为企业定制专属AI智能体。懂行业、懂业务、懂您的客户。</p>
           <a href="services.html" class="service-link">了解更多 →</a>

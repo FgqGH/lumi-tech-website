@@ -208,8 +208,18 @@
     }
 
     .value-icon {
-      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(145deg, var(--blue-dark), var(--blue-mid));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 1rem;
+    }
+
+    .value-icon svg {
+      color: var(--white);
     }
 
     .value-title {
@@ -417,22 +427,44 @@
     </div>
     <div class="values-grid">
       <div class="value-item">
-        <div class="value-icon">💡</div>
+        <div class="value-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
         <h4 class="value-title">务实创新</h4>
         <p class="value-desc">不追风口，只做对企业真正有价值的AI应用</p>
       </div>
       <div class="value-item">
-        <div class="value-icon">🤝</div>
+        <div class="value-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
         <h4 class="value-title">客户为本</h4>
         <p class="value-desc">深入理解业务场景，提供量身定制的解决方案</p>
       </div>
       <div class="value-item">
-        <div class="value-icon">🔒</div>
+        <div class="value-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
         <h4 class="value-title">安全可靠</h4>
         <p class="value-desc">企业级安全标准，数据安全是我们的底线</p>
       </div>
       <div class="value-item">
-        <div class="value-icon">📈</div>
+        <div class="value-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="20" x2="12" y2="10"/>
+            <polyline points="18 20 22 16 18 12"/>
+            <line x1="2" y1="20" x2="6" y2="20"/>
+          </svg>
+        </div>
         <h4 class="value-title">持续陪伴</h4>
         <p class="value-desc">不是交付即结束，我们与您共同成长</p>
       </div>
